@@ -1,5 +1,7 @@
 import 'package:demo_app/button_section.dart';
 import 'package:demo_app/image_section.dart';
+import 'package:demo_app/packing_widgets.dart';
+import 'package:demo_app/sizing_widgets.dart';
 import 'package:demo_app/text_section.dart';
 import 'package:demo_app/title_section.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +15,10 @@ void main() {
             child: Text('Demo'),
           ),
         ),
+        body: const PackingWidgets(),
+        //body: const SizingWidgets(),
         //SingleChildScrollView
-        body: const Column(
+        /* body: const Column(
           children: [
             ImageSection(
               image: 'images/lake.jpg',
@@ -31,7 +35,7 @@ void main() {
                     'degrees Celsius in the summer. Activities enjoyed here '
                     'include rowing, and riding the summer toboggan run.'),
           ],
-        ),
+        ), */
       ),
     ),
   );
