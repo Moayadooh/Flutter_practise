@@ -5,95 +5,127 @@ class Review extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextStyle paragraphStyle = const TextStyle(
+      fontSize: 14,
+      decoration: TextDecoration.none,
+      color: Colors.black,
+    );
     return Container(
       decoration: BoxDecoration(
         color: Colors.grey[300],
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            children: [
-              const Expanded(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 60),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Image.asset(
+                'images/pavlova.jpg',
+                //width: 300,
+                //height: 200,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(32),
                 child: Column(
                   children: [
-                    Text(
+                    const Text(
                       'Strawberry Pavlova',
                       style: TextStyle(
-                          fontSize: 24,
-                          decoration: TextDecoration.none,
-                          color: Colors.black),
+                        fontSize: 24,
+                        decoration: TextDecoration.none,
+                        color: Colors.black,
+                      ),
                     ),
+                    const SizedBox(height: 20),
                     Text(
                       'Pavlova is a meringue-based dessert named after the Russian ballerina '
                       'Anna Pavlova. Pavlova features a crisp crust and soft, light inside, '
                       'topped with fruit and whipped cream.',
-                      style: TextStyle(
-                        fontSize: 18,
-                      ),
+                      style: paragraphStyle,
                     ),
+                    const SizedBox(height: 20),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Column(
+                        const Column(
                           children: [
-                            Icon(Icons.star),
-                            Icon(Icons.star),
-                            Icon(Icons.star),
-                            Icon(Icons.star),
-                            Icon(Icons.star),
+                            Row(
+                              children: [
+                                Icon(Icons.star),
+                                Icon(Icons.star),
+                                Icon(Icons.star),
+                                Icon(Icons.star),
+                                Icon(Icons.star),
+                              ],
+                            ),
                           ],
                         ),
                         Column(
                           children: [
                             Text(
                               '170 Reviews',
-                              style: TextStyle(
-                                fontSize: 18,
-                              ),
+                              style: paragraphStyle,
                             ),
                           ],
                         ),
                       ],
                     ),
+                    const SizedBox(height: 20),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        /* Column(
+                        Column(
                           children: [
-                            Icon(Icons.perm_phone_msg),
-                            Text('PREP:'),
-                            Text('25 min'),
+                            const Icon(Icons.free_breakfast),
+                            Text(
+                              'PREP:',
+                              style: paragraphStyle,
+                            ),
+                            Text(
+                              '25 min',
+                              style: paragraphStyle,
+                            ),
                           ],
                         ),
                         Column(
                           children: [
-                            Icon(Icons.perm_phone_msg),
-                            Text('PREP:'),
-                            Text('25 min'),
+                            const Icon(Icons.timeline),
+                            Text(
+                              'COOK:',
+                              style: paragraphStyle,
+                            ),
+                            Text(
+                              '1 hr',
+                              style: paragraphStyle,
+                            ),
                           ],
                         ),
                         Column(
                           children: [
-                            Icon(Icons.perm_phone_msg),
-                            Text('PREP:'),
-                            Text('25 min'),
+                            const Icon(Icons.lunch_dining),
+                            Text(
+                              'FEEDS:',
+                              style: paragraphStyle,
+                            ),
+                            Text(
+                              '4-6',
+                              style: paragraphStyle,
+                            ),
                           ],
-                        ), */
+                        ),
                       ],
                     ),
                   ],
                 ),
               ),
-              Expanded(
-                child: Image.asset(
-                  'images/pavlova.jpg',
-                  //width: 300,
-                  //height: 200,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ],
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }
