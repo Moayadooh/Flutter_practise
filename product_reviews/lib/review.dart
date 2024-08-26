@@ -81,10 +81,16 @@ class Review extends StatelessWidget {
                       children: [
                         Column(
                           children: [
-                            const Icon(Icons.free_breakfast),
-                            Text(
-                              'PREP:',
-                              style: paragraphStyle,
+                            const Icon(
+                              Icons.free_breakfast,
+                              color: Colors.green,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 10),
+                              child: Text(
+                                'PREP:',
+                                style: paragraphStyle,
+                              ),
                             ),
                             Text(
                               '25 min',
@@ -94,10 +100,16 @@ class Review extends StatelessWidget {
                         ),
                         Column(
                           children: [
-                            const Icon(Icons.timeline),
-                            Text(
-                              'COOK:',
-                              style: paragraphStyle,
+                            const Icon(
+                              Icons.timeline,
+                              color: Colors.green,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 10),
+                              child: Text(
+                                'COOK:',
+                                style: paragraphStyle,
+                              ),
                             ),
                             Text(
                               '1 hr',
@@ -107,10 +119,16 @@ class Review extends StatelessWidget {
                         ),
                         Column(
                           children: [
-                            const Icon(Icons.lunch_dining),
-                            Text(
-                              'FEEDS:',
-                              style: paragraphStyle,
+                            const Icon(
+                              Icons.lunch_dining,
+                              color: Colors.green,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 10),
+                              child: Text(
+                                'FEEDS:',
+                                style: paragraphStyle,
+                              ),
                             ),
                             Text(
                               '4-6',
