@@ -1,4 +1,7 @@
 import 'package:common_layout_widgets/container_demo.dart';
+import 'package:common_layout_widgets/grid_and_list.dart';
+import 'package:common_layout_widgets/grid_view_demo.dart';
+import 'package:common_layout_widgets/list_view_demo.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +14,7 @@ void main() {
           ),
         ),
       ),
-      body: const ContainerDemo(),
+      body: const ListViewDemo(),
     ),
   ));
 }
