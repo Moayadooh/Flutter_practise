@@ -1,3 +1,4 @@
+import 'package:common_layout_widgets/card_demo.dart';
 import 'package:common_layout_widgets/container_demo.dart';
 import 'package:common_layout_widgets/grid_and_list.dart';
 import 'package:common_layout_widgets/grid_view_demo.dart';
@@ -15,7 +16,7 @@ void main() {
           ),
         ),
       ),
-      body: const StackDemo(),
+      body: const CardDemo(),
     ),
   ));
 }
