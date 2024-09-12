@@ -10,11 +10,24 @@ class TextFieldDemo extends StatefulWidget {
 }
 
 class _TextFieldDemo extends State<TextFieldDemo> {
-  final myController = TextEditingController();
+  final num1Controller = TextEditingController();
+  final num2Controller = TextEditingController();
+
+  void _printText() {
+    final text = num1Controller.text;
+    print(text);
+  }
+
+  @override
+  void initState() {
+    num1Controller.addListener(_printText);
+    super.initState();
+  }
 
   @override
   void dispose() {
-    myController.dispose();
+    num1Controller.dispose();
+    num2Controller.dispose();
     super.dispose();
   }
 
@@ -24,43 +37,50 @@ class _TextFieldDemo extends State<TextFieldDemo> {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(
-            vertical: 16,
-            horizontal: 8,
+            horizontal: 16,
+            vertical: 8,
           ),
-          child: TextField(
+          child: TextFormField(
             decoration: const InputDecoration(
               border: OutlineInputBorder(),
               hintText: 'Enter a number',
             ),
-            controller: myController,
+            controller: num1Controller,
+            onChanged: (value) {
+              //print(value);
+            },
           ),
         ),
-        FloatingActionButton(
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  content: Text(myController.text),
-                );
-              },
-            );
-          },
-          tooltip: 'Show the value',
-          child: const Icon(Icons.abc),
-        ),
-        /* Padding(
+        Padding(
           padding: const EdgeInsets.symmetric(
-            vertical: 16,
-            horizontal: 8,
+            horizontal: 16,
+            vertical: 8,
           ),
-          child: TextFormField(
+          child: TextField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
-              labelText: 'Enter a number',
+              label: Text('Enter a number'),
             ),
+            controller: num2Controller,
           ),
-        ), */
+        ),
+        ElevatedButton(
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: (context) {
+                  var total = int.parse(num1Controller.text) +
+                      int.parse(num2Controller.text);
+                  num1Controller.text = '';
+                  return AlertDialog(
+                    content: Text(total.toString()),
+                  );
+                });
+          },
+          child: const Icon(
+            Icons.calculate,
+          ),
+        ),
       ],
     );
   }
