@@ -1,25 +1,55 @@
 import 'package:flutter/material.dart';
 
-class TextFieldDemo extends StatelessWidget {
+class TextFieldDemo extends StatefulWidget {
   const TextFieldDemo({super.key});
+
+  @override
+  State<TextFieldDemo> createState() {
+    return _TextFieldDemo();
+  }
+}
+
+class _TextFieldDemo extends State<TextFieldDemo> {
+  final myController = TextEditingController();
+
+  @override
+  void dispose() {
+    myController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Padding(
-          padding: EdgeInsets.symmetric(
+        Padding(
+          padding: const EdgeInsets.symmetric(
             vertical: 16,
             horizontal: 8,
           ),
           child: TextField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               border: OutlineInputBorder(),
               hintText: 'Enter a number',
             ),
+            controller: myController,
           ),
         ),
-        Padding(
+        FloatingActionButton(
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  content: Text(myController.text),
+                );
+              },
+            );
+          },
+          tooltip: 'Show the value',
+          child: const Icon(Icons.abc),
+        ),
+        /* Padding(
           padding: const EdgeInsets.symmetric(
             vertical: 16,
             horizontal: 8,
@@ -30,7 +60,7 @@ class TextFieldDemo extends StatelessWidget {
               labelText: 'Enter a number',
             ),
           ),
-        ),
+        ), */
       ],
     );
   }
