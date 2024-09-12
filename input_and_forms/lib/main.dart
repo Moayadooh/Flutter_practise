@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:input_and_forms/form_demo.dart';
 import 'package:input_and_forms/text_field_demo.dart';
 
 void main() {
@@ -7,10 +8,10 @@ void main() {
       home: Scaffold(
         appBar: AppBar(
           title: const Center(
-            child: Text('Text Field'),
+            child: Text('Form & Text Field'),
           ),
         ),
-        body: const TextFieldDemo(),
+        body: const FormDemo(),
       ),
     ),
   );
