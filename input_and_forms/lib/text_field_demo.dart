@@ -12,6 +12,7 @@ class TextFieldDemo extends StatefulWidget {
 class _TextFieldDemo extends State<TextFieldDemo> {
   final num1Controller = TextEditingController();
   final num2Controller = TextEditingController();
+  late FocusNode myFocusNode;
 
   void _printText() {
     final text = num1Controller.text;
@@ -22,12 +23,15 @@ class _TextFieldDemo extends State<TextFieldDemo> {
   void initState() {
     num1Controller.addListener(_printText);
     super.initState();
+
+    myFocusNode = FocusNode();
   }
 
   @override
   void dispose() {
     num1Controller.dispose();
     num2Controller.dispose();
+    myFocusNode.dispose();
     super.dispose();
   }
 
@@ -46,6 +50,7 @@ class _TextFieldDemo extends State<TextFieldDemo> {
               hintText: 'Enter a number',
             ),
             controller: num1Controller,
+            //autofocus: true,
             onChanged: (value) {
               //print(value);
             },
@@ -62,20 +67,21 @@ class _TextFieldDemo extends State<TextFieldDemo> {
               label: Text('Enter a number'),
             ),
             controller: num2Controller,
+            focusNode: myFocusNode,
           ),
         ),
         ElevatedButton(
           onPressed: () {
-            showDialog(
+            /* showDialog(
                 context: context,
                 builder: (context) {
                   var total = int.parse(num1Controller.text) +
                       int.parse(num2Controller.text);
-                  num1Controller.text = '';
                   return AlertDialog(
                     content: Text(total.toString()),
                   );
-                });
+                }); */
+            myFocusNode.requestFocus();
           },
           child: const Icon(
             Icons.calculate,
