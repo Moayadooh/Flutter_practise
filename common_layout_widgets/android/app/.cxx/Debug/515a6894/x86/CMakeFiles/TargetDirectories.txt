@@ -1,0 +1,2 @@
+/Users/muayad/Downloads/Flutter_practise/common_layout_widgets/android/app/.cxx/Debug/515a6894/x86/CMakeFiles/rebuild_cache.dir
+/Users/muayad/Downloads/Flutter_practise/common_layout_widgets/android/app/.cxx/Debug/515a6894/x86/CMakeFiles/edit_cache.dir
